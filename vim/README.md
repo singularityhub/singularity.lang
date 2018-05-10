@@ -1,5 +1,7 @@
 # Vim Syntax Highlighting for Singularity files
 
+![img/vim.png](img/vim.png)
+
 ## Installation
 
 ### Makefile
