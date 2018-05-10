@@ -1,4 +1,4 @@
-# Singularity.lang
+# Gedit Syntax Highlighting
 
 [gedit](https://help.ubuntu.com/community/gedit) is a text editor that comes
 default on Ubuntu distributions, and a good choice for editing your Singularity
