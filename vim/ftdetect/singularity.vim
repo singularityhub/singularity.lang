@@ -1,1 +1,1 @@
-au BufNewFile,BufRead Singularity,Singularity.* set filetype=singularity
+au BufNewFile,BufRead Singularity,Singularity.*,*.def set filetype=singularity

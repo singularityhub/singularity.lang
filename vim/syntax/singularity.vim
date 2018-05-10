@@ -13,7 +13,7 @@ syn keyword shellCommand exec export apt apt-get yum dnf touch chmod usermod gro
 " TODO add more common shell commands
 
 syn case ignore
-syn keyword singularityKeyword Bootstrap From OSVersion MirrorURL Include
+syn keyword singularityKeyword Bootstrap From OSVersion MirrorURL Include UpdateURL Include
 syn case match
 
 syn keyword singularitySection contained help setup files labels environment post runscript test
@@ -22,14 +22,18 @@ syn keyword singularitySection contained apphelp applabels appinstall appenv app
 " TODO variable dereferencing
 
 " Regions
+syn region singularityString start=/"/ skip=/\\"|\\\\/ end=/"/
 syn region singularityComment start="#" end="\n"
-syn region singularityComment start="%" end="\n" contains=singularitySection
+syn region singularitySectionLine start="^%" end="\s" contains=singularitySection
+syn region singularityVariable start="%{" end="}"
 
 " Highlighting
-hi def link singularityVar     Variable
-hi def link singularitySection Special
-hi def link singularityKeyword Statement
-hi def link singularityComment Comment
-hi def link shellCommand       Function
+hi def link singularityVariable    Identifier
+hi def link singularitySection     Function
+hi def link singularitySectionLine SpecialChar
+hi def link singularityKeyword     Keyword
+hi def link singularityComment     Comment
+hi def link singularityString      String
+hi def link shellCommand           Statement
 
 let b:current_syntax = "singularity"
