@@ -5,8 +5,8 @@
 ### Makefile
 
 ```bash
-git clone https://github.com/rbberger/vim-singularity-syntax.git
-cd vim-singularity-syntax
+git clone https://github.com/singularityware/singularity.lang.git
+cd singularity.lang/vim
 make install
 ```
 
@@ -15,5 +15,5 @@ make install
 Add the following to your vimrc:
 
 ```vim
-Bundle 'rbberger/vim-singularity-syntax'
+Plugin 'singularityware/singularity.lang', {'rtp': 'vim/'}
 ```
