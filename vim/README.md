@@ -2,6 +2,8 @@
 
 ![img/vim.png](img/vim.png)
 
+![img/vim2.png](img/vim2.png)
+
 ## Installation
 
 ### Makefile
