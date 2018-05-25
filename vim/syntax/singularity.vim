@@ -8,7 +8,7 @@ if exists("b:current_syntax")
 endif
 
 " Keywords
-syn keyword shellCommand exec export apt apt-get yum dnf touch chmod usermod groupmod cat echo
+syn keyword shellCommand apt apt-get cat chmod dnf echo exec exit export groupmod ln pacman paccache sed touch usermod yum zypper
 
 " TODO add more common shell commands
 
