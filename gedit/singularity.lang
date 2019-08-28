@@ -3,72 +3,49 @@
 <language id="singularity" name="Singularity" version="2.0" _section="Source">
   <metadata>
     <property name="globs">Singularity;Singularity.*;*.def</property>
+    <property name="line-comment-start">#</property>
   </metadata>
   <styles>
-    <style id="comment" name="Comment" map-to="def:comment"/>
-    <style id="string" name="String" map-to="def:string"/>
-    <style id="escaped-character" name="Escaped Character" map-to="def:special-char"/>
     <style id="preprocessor" name="Preprocessor" map-to="def:preprocessor"/>
-    <style id="char" name="Character" map-to="def:character"/>
     <style id="keyword" name="Keyword" map-to="def:keyword"/>
-    <style id="type" name="Data Type" map-to="def:type"/>
   </styles>
   <definitions>
     <context id="singularity">
       <include>
-
-        <context id="comment" style-ref="comment">
-          <start>#</start>
-          <end>$</end>
-        </context>
-
-        <context id="string" end-at-line-end="true" style-ref="string">
-          <start>"</start>
-          <end>"</end>
-          <include>
-            <context id="escape" style-ref="escaped-character">
-              <match>\\.</match>
-            </context>
-          </include>
-        </context>
-
-        <context id="char" end-at-line-end="true" style-ref="string">
-          <start>'</start>
-          <end>'</end>
-          <include>
-            <context ref="escape"/>
-          </include>
-        </context>
-
-        <context ref="def:decimal"/>
-        <context ref="def:float"/>
-
         <context id="keywords" style-ref="keyword">
+          <suffix>:</suffix>
           <keyword>Bootstrap</keyword>
           <keyword>From</keyword>
-          <keyword>OSVersion</keyword>
-          <keyword>MirrorURL</keyword>
+          <keyword>IncludeCmd</keyword>
           <keyword>Include</keyword>
+          <keyword>Library</keyword>
+          <keyword>MirrorURL</keyword>
+          <keyword>Namespace</keyword>
+          <keyword>OSVersion</keyword>
+          <keyword>Registry</keyword>
+          <keyword>Stage</keyword>
         </context>
 
         <context id="preprocessor" style-ref="preprocessor">
           <prefix>^%</prefix>
-          <keyword>help</keyword>
-          <keyword>setup</keyword>
-          <keyword>files</keyword>
-          <keyword>labels</keyword>
+          <keyword>appenv</keyword>
+          <keyword>appfiles</keyword>
+          <keyword>apphelp</keyword>
+          <keyword>appinstall</keyword>
+          <keyword>applabels</keyword>
+          <keyword>apprun</keyword>
           <keyword>environment</keyword>
+          <keyword>files</keyword>
+          <keyword>help</keyword>
+          <keyword>labels</keyword>
           <keyword>post</keyword>
           <keyword>runscript</keyword>
+          <keyword>setup</keyword>
+          <keyword>startscript</keyword>
           <keyword>test</keyword>
-          <keyword>apphelp</keyword>
-          <keyword>applabels</keyword>
-          <keyword>appinstall</keyword>
-          <keyword>appenv</keyword>
-          <keyword>apprun</keyword>
-          <keyword>appfiles</keyword>
         </context>
 
+        <context ref="sh:sh"/>
       </include>
     </context>
   </definitions>
