@@ -3,6 +3,7 @@
 <language id="singularity" name="Singularity" version="2.0" _section="Source">
   <metadata>
     <property name="globs">Singularity;Singularity.*;*.def</property>
+    <property name="line-comment-start">#</property>
   </metadata>
   <styles>
     <style id="comment" name="Comment" map-to="def:comment"/>
@@ -44,11 +45,19 @@
         <context ref="def:float"/>
 
         <context id="keywords" style-ref="keyword">
+          <suffix>:</suffix>
           <keyword>Bootstrap</keyword>
           <keyword>From</keyword>
           <keyword>OSVersion</keyword>
           <keyword>MirrorURL</keyword>
           <keyword>Include</keyword>
+          <keyword>Stage</keyword>
+          <keyword>Library</keyword>
+          <keyword>Stage</keyword>
+          <keyword>Registry</keyword>
+          <keyword>Namespace</keyword>
+          <keyword>IncludeCmd</keyword>
+          <keyword>Stage</keyword>
         </context>
 
         <context id="preprocessor" style-ref="preprocessor">
@@ -60,6 +69,7 @@
           <keyword>environment</keyword>
           <keyword>post</keyword>
           <keyword>runscript</keyword>
+          <keyword>startscript</keyword>
           <keyword>test</keyword>
           <keyword>apphelp</keyword>
           <keyword>applabels</keyword>
