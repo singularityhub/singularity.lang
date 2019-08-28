@@ -6,44 +6,12 @@
     <property name="line-comment-start">#</property>
   </metadata>
   <styles>
-    <style id="comment" name="Comment" map-to="def:comment"/>
-    <style id="string" name="String" map-to="def:string"/>
-    <style id="escaped-character" name="Escaped Character" map-to="def:special-char"/>
     <style id="preprocessor" name="Preprocessor" map-to="def:preprocessor"/>
-    <style id="char" name="Character" map-to="def:character"/>
     <style id="keyword" name="Keyword" map-to="def:keyword"/>
-    <style id="type" name="Data Type" map-to="def:type"/>
   </styles>
   <definitions>
     <context id="singularity">
       <include>
-
-        <context id="comment" style-ref="comment">
-          <start>#</start>
-          <end>$</end>
-        </context>
-
-        <context id="string" end-at-line-end="true" style-ref="string">
-          <start>"</start>
-          <end>"</end>
-          <include>
-            <context id="escape" style-ref="escaped-character">
-              <match>\\.</match>
-            </context>
-          </include>
-        </context>
-
-        <context id="char" end-at-line-end="true" style-ref="string">
-          <start>'</start>
-          <end>'</end>
-          <include>
-            <context ref="escape"/>
-          </include>
-        </context>
-
-        <context ref="def:decimal"/>
-        <context ref="def:float"/>
-
         <context id="keywords" style-ref="keyword">
           <suffix>:</suffix>
           <keyword>Bootstrap</keyword>
@@ -79,6 +47,7 @@
           <keyword>appfiles</keyword>
         </context>
 
+        <context ref="sh:sh"/>
       </include>
     </context>
   </definitions>
