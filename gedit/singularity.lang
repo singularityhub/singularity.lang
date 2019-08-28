@@ -16,35 +16,33 @@
           <suffix>:</suffix>
           <keyword>Bootstrap</keyword>
           <keyword>From</keyword>
-          <keyword>OSVersion</keyword>
-          <keyword>MirrorURL</keyword>
-          <keyword>Include</keyword>
-          <keyword>Stage</keyword>
-          <keyword>Library</keyword>
-          <keyword>Stage</keyword>
-          <keyword>Registry</keyword>
-          <keyword>Namespace</keyword>
           <keyword>IncludeCmd</keyword>
+          <keyword>Include</keyword>
+          <keyword>Library</keyword>
+          <keyword>MirrorURL</keyword>
+          <keyword>Namespace</keyword>
+          <keyword>OSVersion</keyword>
+          <keyword>Registry</keyword>
           <keyword>Stage</keyword>
         </context>
 
         <context id="preprocessor" style-ref="preprocessor">
           <prefix>^%</prefix>
-          <keyword>help</keyword>
-          <keyword>setup</keyword>
-          <keyword>files</keyword>
-          <keyword>labels</keyword>
+          <keyword>appenv</keyword>
+          <keyword>appfiles</keyword>
+          <keyword>apphelp</keyword>
+          <keyword>appinstall</keyword>
+          <keyword>applabels</keyword>
+          <keyword>apprun</keyword>
           <keyword>environment</keyword>
+          <keyword>files</keyword>
+          <keyword>help</keyword>
+          <keyword>labels</keyword>
           <keyword>post</keyword>
           <keyword>runscript</keyword>
+          <keyword>setup</keyword>
           <keyword>startscript</keyword>
           <keyword>test</keyword>
-          <keyword>apphelp</keyword>
-          <keyword>applabels</keyword>
-          <keyword>appinstall</keyword>
-          <keyword>appenv</keyword>
-          <keyword>apprun</keyword>
-          <keyword>appfiles</keyword>
         </context>
 
         <context ref="sh:sh"/>
