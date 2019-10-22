@@ -43,6 +43,6 @@ and then to restart the editor(s).
 ## Contributing
 
 If you are looking for the Atom syntax highlighter, see
- [language-singularity](https://www.github.com/singularityware/language-singularity.git). 
+ [language-singularity](https://github.com/singularityhub/language-singularity). 
 If you would like to add an editor, please open an issue or Pull Request if you
 have an editor to contribute.
