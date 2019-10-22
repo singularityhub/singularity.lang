@@ -30,7 +30,7 @@ that your gedit installation uses. For example:
 **1. Clone the Repository**
 
 ```bash
-git clone https://www.github.com/singularityware/singularity.lang
+git clone https://github.com/singularityhub/singularity.lang
 cd singularity.lang
 ```
 
@@ -43,6 +43,6 @@ and then to restart the editor(s).
 ## Contributing
 
 If you are looking for the Atom syntax highlighter, see
- [language-singularity](https://www.github.com/singularityware/language-singularity.git). 
+ [language-singularity](https://github.com/singularityhub/language-singularity). 
 If you would like to add an editor, please open an issue or Pull Request if you
 have an editor to contribute.
