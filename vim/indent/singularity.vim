@@ -30,6 +30,11 @@ function! GetSingularityIndent(lnum)
     " echom "Indenting line " lnum
     let lnum = a:lnum
 
+    " The first line is at indent level 0
+    if lnum == 1
+        return 0
+    endif
+
     " Trigger indentation when typing %, if line matches regex '^\s*%\*$' set indent to
     " level 0
     let this_line = getline(lnum)
