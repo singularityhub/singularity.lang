@@ -15,13 +15,11 @@ setlocal autoindent
 setlocal indentexpr=GetSingularityIndent(v:lnum)
 
 " Declare which keys trigger the indentation function
-setlocal indentkeys=!^F,o,O,0%
+setlocal indentkeys=!^F,o,O,0%,<:>
 
 " Indentation level function
 " Returns the level of indentation as an integer
 " -1 means to retain the current indentation level
-"
-" Should add rules for handling the header (Bootstrap:, From:, etc.)
 function! GetSingularityIndent(lnum)
     " echom "Indenting line " lnum
     let lnum = a:lnum
@@ -31,13 +29,21 @@ function! GetSingularityIndent(lnum)
         return 0
     endif
 
-    " Trigger indentation when typing %, if line matches regex '^\s*%\*$' set indent to
-    " level 0
     let this_line = getline(lnum)
+
+    " Catch indentation triggered when typing %, for section headings set
+    " indent to level 0
     if this_line =~ '^\s*%'
         " echom "Section beginning (%), indenting to level 0"
         return 0
     endif
+
+    " Trigger indentation when typing :, if line matches a keyword set indent
+    " to level 0
+    if this_line =~ '^\s*\(Bootstrap\|From\|OSVersion\|MirrorURL\|Library\|Registry\|Namespace\|IncludeCmd\|Include\):'
+        return 0
+    endif
+
 
     " Search backwards for the section lnum belongs to
     let clnum = lnum - 1
