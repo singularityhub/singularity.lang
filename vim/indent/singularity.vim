@@ -21,7 +21,6 @@ setlocal indentkeys=!^F,o,O,0%,<:>
 " Returns the level of indentation as an integer
 " -1 means to retain the current indentation level
 function! GetSingularityIndent(lnum)
-    " echom "Indenting line " lnum
     let lnum = a:lnum
 
     " The first line is at indent level 0
@@ -34,7 +33,6 @@ function! GetSingularityIndent(lnum)
     " Catch indentation triggered when typing %, for section headings set
     " indent to level 0
     if this_line =~ '^\s*%'
-        " echom "Section beginning (%), indenting to level 0"
         return 0
     endif
 
@@ -54,7 +52,6 @@ function! GetSingularityIndent(lnum)
         " %setup,%files,%post,%test,%environment,%startscript,%runscript,%labels,%help
         " increase indent one step (or make indent level 1?)
         if current_line =~ '^%\(setup\|files\|post\|test\|environment\|startscript\|runscript\|labels\|help\)'
-            " echom "Previous line was section beginning, increasing indentation by shiftwidth: " &shiftwidth
             return indent(clnum) + &shiftwidth
         endif
 
@@ -62,7 +59,6 @@ function! GetSingularityIndent(lnum)
         " %apprun *,%applabels *,%appinstall *,%appenv *,%apphelp *,%appfiles *
         " increase indent one step (or make indent level 1?)
         if current_line =~ '^%\(apprun\|applabels\|appinstall\|appenv\|apphelp\|appfiles\)\s*[a-zA-Z]*'
-            " echom "Previous line was app section beginning, increasing indentation by shiftwidth: " &shiftwidth
             return indent(clnum) + &shiftwidth
         endif
 
