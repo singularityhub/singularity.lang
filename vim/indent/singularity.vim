@@ -38,7 +38,7 @@ function! GetSingularityIndent(lnum)
 
     " Trigger indentation when typing :, if line matches a keyword set indent
     " to level 0
-    if this_line =~ '^\s*\(Bootstrap\|From\|OSVersion\|MirrorURL\|Library\|Registry\|Namespace\|IncludeCmd\|Include\):'
+    if this_line =~ '^\s*\(Bootstrap\|From\|Stage\|OSVersion\|MirrorURL\|Library\|Registry\|Namespace\|IncludeCmd\|Include\):'
         return 0
     endif
 
