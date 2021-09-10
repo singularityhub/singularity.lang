@@ -21,10 +21,6 @@ setlocal indentkeys=!^F,o,O,0%
 " Returns the level of indentation as an integer
 " -1 means to retain the current indentation level
 "
-" Not robust enough, needs to work backwards until the beginning of the last
-" block (otherwise we don't know how to indent a line part way through a
-" block)
-"
 " Should add rules for handling the header (Bootstrap:, From:, etc.)
 function! GetSingularityIndent(lnum)
     " echom "Indenting line " lnum
@@ -43,24 +39,29 @@ function! GetSingularityIndent(lnum)
         return 0
     endif
 
-    let plnum = lnum - 1
-    let previous_line = getline(plnum)
+    " Search backwards for the section lnum belongs to
+    let clnum = lnum - 1
+    while clnum > 0
+        let current_line = getline(clnum)
 
-    " If previous line is one of
-    " %setup,%files,%post,%test,%environment,%startscript,%runscript,%labels,%help
-    " increase indent one step (or make indent level 1?)
-    if previous_line =~ '^%\(setup\|files\|post\|test\|environment\|startscript\|runscript\|labels\|help\)'
-        " echom "Previous line was section beginning, increasing indentation by shiftwidth: " &shiftwidth
-        return indent(plnum) + &shiftwidth
-    endif
+        " If parent section is one of
+        " %setup,%files,%post,%test,%environment,%startscript,%runscript,%labels,%help
+        " increase indent one step (or make indent level 1?)
+        if current_line =~ '^%\(setup\|files\|post\|test\|environment\|startscript\|runscript\|labels\|help\)'
+            " echom "Previous line was section beginning, increasing indentation by shiftwidth: " &shiftwidth
+            return indent(clnum) + &shiftwidth
+        endif
 
-    " If previous line is one of
-    " %apprun *,%applabels *,%appinstall *,%appenv *,%apphelp *,%appfiles *
-    " increase indent one step (or make indent level 1?)
-    if previous_line =~ '^%\(apprun\|applabels\|appinstall\|appenv\|apphelp\|appfiles\)\s*[a-zA-Z]*'
-        " echom "Previous line was app section beginning, increasing indentation by shiftwidth: " &shiftwidth
-        return indent(plnum) + &shiftwidth
-    endif
+        " If parent section is one of
+        " %apprun *,%applabels *,%appinstall *,%appenv *,%apphelp *,%appfiles *
+        " increase indent one step (or make indent level 1?)
+        if current_line =~ '^%\(apprun\|applabels\|appinstall\|appenv\|apphelp\|appfiles\)\s*[a-zA-Z]*'
+            " echom "Previous line was app section beginning, increasing indentation by shiftwidth: " &shiftwidth
+            return indent(clnum) + &shiftwidth
+        endif
+
+        let clnum = clnum - 1
+    endwhile
 
     " Otherwise return same indent level
     return -1
