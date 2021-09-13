@@ -58,7 +58,7 @@ function! GetSingularityIndent(lnum)
         " If parent section is one of
         " %apprun *,%applabels *,%appinstall *,%appenv *,%apphelp *,%appfiles *
         " increase indent one step
-        if current_line =~ '^%\(apprun\|applabels\|appinstall\|appenv\|apphelp\|appfiles\)\s*[a-zA-Z]*'
+        if current_line =~ '^%\(apprun\|applabels\|appinstall\|appenv\|apphelp\|appfiles\|apptest\)\s*[a-zA-Z]*'
             return indent(clnum) + &shiftwidth
         endif
 
