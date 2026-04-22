@@ -17,6 +17,7 @@ syn keyword singularitySectionName contained help setup files labels
 syn keyword singularitySectionName contained environment post runscript test
 syn keyword singularitySectionName contained apphelp applabels appinstall
 syn keyword singularitySectionName contained appenv apprun appfiles
+syn keyword singularitySectionName contained arguments startscript
 
 " TODO variable dereferencing
 
